@@ -8,17 +8,27 @@
     "dev": "nodemon --exec ts-node src/index.ts",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:reset": "prisma migrate reset",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:identify": "ts-node src/test-identify.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "Node.js Express TypeScript project",
   "dependencies": {
+    "@prisma/client": "^6.13.0",
     "@types/express": "^5.0.3",
     "@types/node": "^24.2.1",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
+    "prisma": "^6.13.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
