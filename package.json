@@ -1,0 +1,28 @@
+{
+  "name": "bitespeed2",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Node.js Express TypeScript project",
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.1",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1"
+  }
+}
