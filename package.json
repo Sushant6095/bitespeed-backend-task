@@ -15,7 +15,13 @@
     "db:studio": "prisma studio",
     "postinstall": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:identify": "ts-node src/test-identify.ts"
+    "test:identify": "ts-node src/test-identify.ts",
+    "docker:build": "docker build -t bitespeed-api .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env bitespeed-api",
+    "docker:up": "docker-compose up --build",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f app",
+    "deploy:migrate": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
