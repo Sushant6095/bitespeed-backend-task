@@ -58,9 +58,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
 
-# Copy production startup script
-COPY --chown=nextjs:nodejs scripts/start-production.sh ./scripts/
-RUN chmod +x ./scripts/start-production.sh
+# Copy production startup script with absolute path
+COPY --chown=nextjs:nodejs scripts/start-production.sh /app/scripts/start-production.sh
+RUN chmod +x /app/scripts/start-production.sh
 
 # Switch to non-root user
 USER nextjs
@@ -78,5 +78,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 # Use dumb-init to handle signals properly
 ENTRYPOINT ["dumb-init", "--"]
 
-# Start the application with production script
-CMD ["./scripts/start-production.sh"]
+# Start the application with production script (using absolute path)
+CMD ["/app/scripts/start-production.sh"]
