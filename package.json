@@ -2,6 +2,10 @@
   "name": "bitespeed2",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
@@ -13,7 +17,6 @@
     "db:reset": "prisma migrate reset",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
-    "postinstall": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:identify": "ts-node src/test-identify.ts",
     "docker:build": "docker build -t bitespeed-api .",

@@ -3,13 +3,16 @@
 # ================================
 # Builder Stage
 # ================================
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Set working directory
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
+
+# Copy Prisma schema first
+COPY prisma ./prisma
 
 # Install all dependencies (including dev dependencies for building)
 RUN npm ci
@@ -26,7 +29,7 @@ RUN npm run build
 # ================================
 # Production Stage
 # ================================
-FROM node:18-alpine AS production
+FROM node:20-alpine AS production
 
 # Install dumb-init for proper signal handling
 RUN apk add --no-cache dumb-init
@@ -40,6 +43,9 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
+
+# Copy Prisma schema first
+COPY prisma ./prisma
 
 # Install only production dependencies
 RUN npm ci --only=production && npm cache clean --force

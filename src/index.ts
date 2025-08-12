@@ -41,6 +41,20 @@ app.get('/health', async (req: Request, res: Response) => {
   }
 });
 
+// GET /identify route - shows service information
+app.get('/identify', (req: Request, res: Response) => {
+  res.send(`
+    <h1>Bitespeed Identity Service</h1>
+    <p>Status: API is healthy and running! ✅</p>
+    <hr>
+    <h3>How to Use:</h3>
+    <p>This is a backend service. To test it, please use an API client like Postman or cURL.</p>
+    <p><strong>Endpoint:</strong> <code>POST /identify</code></p>
+    <p>For full request/response examples, please see the project documentation on GitHub.</p>
+    <a href="https://github.com/Sushant6095/bitespeed-backend-task">View Source Code on GitHub</a>
+  `);
+});
+
 // POST /identify route
 app.post('/identify', async (req: Request<{}, any, IdentifyRequest>, res: Response): Promise<void> => {
   try {
