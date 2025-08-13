@@ -1,6 +1,8 @@
 # Contact Identity Reconciliation API
 
 A robust REST API service that identifies and consolidates customer contact information across multiple touchpoints. The service intelligently links contacts based on email addresses and phone numbers, maintaining a unified customer identity while preserving data relationships.
+<img width="589" height="452" alt="Screenshot 2025-08-13 124826" src="https://github.com/user-attachments/assets/8511bfa5-fec0-4d09-b36d-d370cb0c7c94" />
+<img width="638" height="389" alt="Screenshot 2025-08-13 125820" src="https://github.com/user-attachments/assets/b5c52f5b-5379-4e82-b0af-1044257bf3de" />
 
 ## 🚀 Features
 
