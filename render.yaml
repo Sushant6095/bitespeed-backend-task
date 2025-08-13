@@ -1,4 +1,12 @@
 services:
+  - type: pserv
+    name: bitespeed-database
+    env: postgres
+    plan: free
+    databases:
+      - name: bitespeed
+        user: bitespeed_user
+
   - type: web
     name: bitespeed-api
     env: node
@@ -14,7 +22,7 @@ services:
         value: 3000
       - key: DATABASE_URL
         fromDatabase:
-          name: bitespeed
+          name: bitespeed-database
           property: connectionString
     buildFilter:
       paths:
@@ -22,9 +30,3 @@ services:
         - prisma/**
         - package*.json
         - tsconfig.json
-
-databases:
-  - name: bitespeed
-    plan: free
-    databaseName: bitespeed
-    user: bitespeed_user
